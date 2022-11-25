@@ -4,7 +4,7 @@ const Categorie = () => {
     return (
         <>
         <div>
-            <div className="card card-compact w-full bg-base-100 shadow-xl">
+            <div className="card card-compact w-full bg-base-100 shadow-xl hover:translate-y-6">
                 <figure><img src="https://placeimg.com/400/225/arch" alt="Shoes" /></figure>
                 <div className="card-body">
                     <h2 className="card-title">Shoes!</h2>
@@ -16,7 +16,7 @@ const Categorie = () => {
             </div>
         </div>
         <div>
-            <div className="card card-compact w-full bg-base-100 shadow-xl">
+            <div className="card card-compact w-full bg-base-100 shadow-xl hover:translate-y-6">
                 <figure><img src="https://placeimg.com/400/225/arch" alt="Shoes" /></figure>
                 <div className="card-body">
                     <h2 className="card-title">Shoes!</h2>
@@ -28,7 +28,7 @@ const Categorie = () => {
             </div>
         </div>
         <div>
-            <div className="card card-compact w-full bg-base-100 shadow-xl">
+            <div className="card card-compact w-full bg-base-100 shadow-xl hover:translate-y-6">
                 <figure><img src="https://placeimg.com/400/225/arch" alt="Shoes" /></figure>
                 <div className="card-body">
                     <h2 className="card-title">Shoes!</h2>
