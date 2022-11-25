@@ -11,7 +11,7 @@ const Authprovider = ({children}) => {
 
     const [user, setUser] = useState(null);
     const [loading, setLoading]= useState(true);
-    console.log(user)
+    console.log('user',user)
     useEffect(()=>{
        const unsubscribe= onAuthStateChanged(auth,(currentUser)=>{
             console.log('user state change', currentUser);
@@ -45,14 +45,14 @@ const Authprovider = ({children}) => {
         return signInWithEmailAndPassword(auth,email,password);
     }
     // for update user rofile
-    const updateUserProfile = (profile) =>{
-        setLoading(true)
-        return updateProfile(auth.currentUser,profile);
-    }
+    // const updateUserProfile = (profile) =>{
+    //     setLoading(true)
+    //     return updateProfile(auth.currentUser,profile);
+    // }
 
 
     const authInfo={
-        signUp,logIn,logOut,updateUserProfile,googleSignUp,user,loading,setLoading
+        signUp,logIn,logOut,googleSignUp,user,loading,setLoading
     }
     return (
         <div>

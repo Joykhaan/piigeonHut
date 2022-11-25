@@ -15,17 +15,32 @@ const Signup = () => {
             console.log(user)
             // form.reset()
             // navigate(from,{replace: true});
-            // handleUpdateUser(name,photourl);
+            // handleUpdateUser(data.name,data.role)
             
         })
         .catch(error=>{
             console.error(error)
           })
     }
+   
     return (
         <form className='flex justify-center' onSubmit={handleSubmit(handleSignup)}>
 
             <div>
+                <div className="form-control w-full max-w-xs">
+                    <label className="label">
+                        <span className="label-text">Your Name</span>
+                    </label>
+                    <input type="text" {...register("name", { required: 'Name is required' })} className="input input-bordered w-full max-w-xs" />
+                    {errors.name && <p className='text-red-500' role='alert'>{errors.name?.message}</p>}
+                </div>
+                <div className="form-control w-full max-w-xs">
+                    <label className="label">
+                        <span className="label-text">Your Number</span>
+                    </label>
+                    <input type="text" {...register("phone", { required: 'Phone number is required' })} className="input input-bordered w-full max-w-xs" />
+                    {errors.phone && <p className='text-red-500' role='alert'>{errors.phone?.message}</p>}
+                </div>
                 <div className="form-control w-full max-w-xs">
                     <label className="label">
                         <span className="label-text">Your Email</span>

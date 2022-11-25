@@ -7,7 +7,7 @@ import { AuthContext } from '../../ContextApi/Authprovider/Authprovider';
 const Login = () => {
 
     const googleProvider = new GoogleAuthProvider()
-    const{user,logIn,googleSignUp}=useContext(AuthContext)
+    const{logIn,googleSignUp}=useContext(AuthContext)
     const { register,formState:{errors}, handleSubmit } = useForm();
     // const [data, setData] = useState("");
     const handlelogin= data=>{
