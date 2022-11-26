@@ -1,26 +1,26 @@
 [
     {
-        "_id":"01",
+        "id":"01",
         "categorieName":"Samsung"
     },
     {
-        "_id":"02",
+        "id":"02",
         "categorieName":"Nokia"
     },
     {
-        "_id":"03",
+        "id":"03",
         "categorieName":"Iphone"
     },
     {
-        "_id":"04",
+        "id":"04",
         "categorieName":"Xiaomi"
     },
     {
-        "_id":"05",
+        "id":"05",
         "categorieName":"Oppo"
     },
     {
-        "_id":"06",
+        "id":"06",
         "categorieName":"Realmi"
     }
 ]

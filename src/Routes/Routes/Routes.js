@@ -28,9 +28,9 @@ const router = createBrowserRouter([
                 element:<Signup></Signup>
             },
             {
-                path:'/categorie/:categorieName',
+                path:'/categorie/:id',
                 element:<CategorieCard></CategorieCard>,
-                loader:({params}) => fetch(`https://sing-with-me-server.vercel.app/services/${params.categorieName}`),
+                loader:({params}) => fetch(`categoriesCard.json`),
             }
         ]
     }

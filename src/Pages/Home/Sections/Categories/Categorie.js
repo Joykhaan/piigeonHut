@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 
 const Categorie = ({categorie}) => {
 
-    const {categorieName}=categorie
+    const {categorieName,id}=categorie
     return (
         <>
 
@@ -14,7 +14,7 @@ const Categorie = ({categorie}) => {
                         <h2 className="card-title">{categorieName}</h2>
                         
                         <div className="card-actions justify-end">
-                            <Link to={`/categorie/${categorieName}`} className="btn btn-primary">Buy Now</Link>
+                            <Link to={`/categorie/${id}`} className="btn btn-primary">Buy Now</Link>
                         </div>
                     </div>
                 </div>
