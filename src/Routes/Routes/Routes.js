@@ -28,7 +28,7 @@ const router = createBrowserRouter([
                 element:<Signup></Signup>
             },
             {
-                path:'/categorie/:id',
+                path:'/categories',
                 element:<CategorieCard></CategorieCard>,
                 loader:({params}) => fetch(`categoriesCard.json`),
             }
