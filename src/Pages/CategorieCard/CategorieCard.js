@@ -19,6 +19,7 @@ const CategorieCard = () => {
              productCard &&
             <PurchaseModal
             productCard={productCard}
+            setproductCard={setproductCard}
             ></PurchaseModal>   
             }
             

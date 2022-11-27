@@ -2,6 +2,7 @@ import React from 'react';
 
 const CategorieCards = ({ card, setproductCard  }) => {
     const { id, Brand, picture, ProductName, Location, resalePrice, originalPrice, useYears, postedTime, sellerName} = card
+    const time = new Date().toLocaleTimeString();
     return (
         <div className="card card-compact w-96 bg-base-100 shadow-xl">
             <figure><img src="https://placeimg.com/400/225/arch" alt="Shoes" /></figure>

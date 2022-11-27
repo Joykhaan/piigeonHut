@@ -45,14 +45,14 @@ const Authprovider = ({children}) => {
         return signInWithEmailAndPassword(auth,email,password);
     }
     // for update user rofile
-    // const updateUserProfile = (profile) =>{
-    //     setLoading(true)
-    //     return updateProfile(auth.currentUser,profile);
-    // }
+    const updateUserProfile = (profile) =>{
+        setLoading(true)
+        return updateProfile(auth.currentUser,profile);
+    }
 
 
     const authInfo={
-        signUp,logIn,logOut,googleSignUp,user,loading,setLoading
+        signUp,logIn,logOut,googleSignUp,user,loading,setLoading,updateUserProfile
     }
     return (
         <div>

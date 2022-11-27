@@ -8,7 +8,7 @@ const Login = () => {
 
     const googleProvider = new GoogleAuthProvider()
     const{logIn,googleSignUp}=useContext(AuthContext)
-    const { register,formState:{errors}, handleSubmit } = useForm();
+    const { register,reset, formState:{errors}, handleSubmit } = useForm();
     // const [data, setData] = useState("");
     const handlelogin= data=>{
         console.log(data);
@@ -19,7 +19,7 @@ const Login = () => {
         //   toast.success("Deleted Successfully",{
         //       position:"top-center"
         //   });
-        //   form.reset();
+        reset();
         //   navigate(from, { replace: true });
         })
         .catch(error => {

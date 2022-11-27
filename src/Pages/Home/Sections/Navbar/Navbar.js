@@ -17,6 +17,7 @@ const Navbar = () => {
     <li><Link to='/categoies' href="">Categories</Link></li>
     <li><Link to='/login' href="">Login</Link></li>
     {user?.email?<li>  <Link onClick={handleLogOut}>Logout</Link> </li>:<li>  <Link className='hidden'>Logout</Link> </li>}
+    {user?.email?<li>  <Link to='/dashboard'>Dashboard</Link> </li>:<li>  <Link className='hidden'>Dashboard</Link> </li>}
     </>
     
     return (

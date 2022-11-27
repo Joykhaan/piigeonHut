@@ -4,8 +4,10 @@ import { Link } from 'react-router-dom';
 import { AuthContext } from '../../ContextApi/Authprovider/Authprovider';
 const Signup = () => {
 
-    const{signUp}=useContext(AuthContext);
-    const { register, formState: { errors }, handleSubmit } = useForm();
+    const{signUp,updateUserProfile}=useContext(AuthContext);
+    const { register,reset, formState: { errors }, handleSubmit } = useForm();
+
+
     const handleSignup=data=>{
         console.log(data);
 
@@ -13,14 +15,25 @@ const Signup = () => {
         .then(result=>{
             const user =result.user;
             console.log(user)
-            // form.reset()
+            reset()
             // navigate(from,{replace: true});
-            // handleUpdateUser(data.name,data.role)
+            // updateUserProfile(data.name,data.role)
+            handleUpdateUser(data.name)
+            
             
         })
         .catch(error=>{
             console.error(error)
           })
+    }
+    const handleUpdateUser =(name)=>{
+        const profile={
+            displayName: name,
+        }
+        // console.log('phone',phone)
+        updateUserProfile(profile)
+        .then(()=>{})
+        .catch(error=>console.error(error))
     }
    
     return (
@@ -34,13 +47,13 @@ const Signup = () => {
                     <input type="text" {...register("name", { required: 'Name is required' })} className="input input-bordered w-full max-w-xs" />
                     {errors.name && <p className='text-red-500' role='alert'>{errors.name?.message}</p>}
                 </div>
-                <div className="form-control w-full max-w-xs">
+                {/* <div className="form-control w-full max-w-xs">
                     <label className="label">
                         <span className="label-text">Your Number</span>
                     </label>
                     <input type="text" {...register("phone", { required: 'Phone number is required' })} className="input input-bordered w-full max-w-xs" />
                     {errors.phone && <p className='text-red-500' role='alert'>{errors.phone?.message}</p>}
-                </div>
+                </div> */}
                 <div className="form-control w-full max-w-xs">
                     <label className="label">
                         <span className="label-text">Your Email</span>
