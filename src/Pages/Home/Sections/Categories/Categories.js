@@ -1,9 +1,12 @@
 import React, { useEffect, useState } from 'react';
+import { useLoaderData } from 'react-router-dom';
 import Categorie from './Categorie';
 
 const Categories = () => {
     const [categories, setCategories]=useState([]);
     // const {loading}= useContext(AuthContext)
+    // const categoryCard=useLoaderData()
+    // console.log(categoryCard)
     useEffect(()=>{
         fetch('categories.json')
         .then(res=> res.json())

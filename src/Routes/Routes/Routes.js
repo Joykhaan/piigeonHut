@@ -45,8 +45,9 @@ const router = createBrowserRouter([
         element:<DashboardLayout></DashboardLayout>,
         children:[
             {
-                path:'/dashboard',
-                element:<Myorders></Myorders>
+                path:'/dashboard/:uid',
+                element:<Myorders></Myorders>,
+                loader:({params}) => fetch(`http://localhost:5000/dashboard/${params.uid}`)
             },
             {
                 path:'/dashboard/addproduct',

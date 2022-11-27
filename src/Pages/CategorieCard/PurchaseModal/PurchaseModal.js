@@ -13,9 +13,41 @@ const PurchaseModal = ({ productCard, setproductCard}) => {
         const price = form.price.value;
         const number = form.number.value;
         const location = form.location.value;
+        const itemName = form.itemName.value
+        const uid =user.uid
 
-        console.log(name,email,price,number,location)
+        // console.log(name,email,price,number,location,itemName)
         setproductCard(null)
+
+        const bookingInfo ={
+            itemName,
+            name,
+            email,
+            price,
+            number,
+            location,
+            uid
+        }
+
+        fetch('http://localhost:5000/bookinginfo', {
+            method: 'POST',
+            headers: {
+                'content-type': 'application/json'
+            },
+            body: JSON.stringify(bookingInfo)
+        })
+            .then(res => res.json())
+            .then(data => {
+                
+                // if(data.acknowledged){
+                //     toast.success("service added!!",{
+                //         position:"top-center"
+                //     });
+                //     form.reset();
+                // }
+                
+            })
+            .catch(error => console.error(error));
 
     }
 

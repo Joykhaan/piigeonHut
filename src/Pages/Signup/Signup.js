@@ -9,7 +9,7 @@ const Signup = () => {
 
 
     const handleSignup=data=>{
-        console.log(data);
+        console.log('signup',data);
 
         signUp(data.email,data.password)
         .then(result=>{
@@ -25,6 +25,36 @@ const Signup = () => {
         .catch(error=>{
             console.error(error)
           })
+
+          const name = data.name;
+          const email = data.email
+          const role = data.role
+          const userInfo={
+            name,
+            email,
+            role
+
+          }
+        //   console.log(userInfo)
+        fetch('http://localhost:5000/userinfo', {
+            method: 'POST',
+            headers: {
+                'content-type': 'application/json'
+            },
+            body: JSON.stringify(userInfo)
+        })
+            .then(res => res.json())
+            .then(data => {
+                
+                // if(data.acknowledged){
+                //     toast.success("service added!!",{
+                //         position:"top-center"
+                //     });
+                //     form.reset();
+                // }
+                
+            })
+            .catch(error => console.error(error));
     }
     const handleUpdateUser =(name)=>{
         const profile={
@@ -77,6 +107,7 @@ const Signup = () => {
                     <select  {...register("role", { required: true })} className="select select-bordered w-full max-w-xs">
                         <option>Buyer</option>
                         <option>Seller</option>
+                        <option>Admin</option>
                     </select>
                 </div>
                 <p>Already have an Account? please <Link to='/login'>Login</Link></p>
