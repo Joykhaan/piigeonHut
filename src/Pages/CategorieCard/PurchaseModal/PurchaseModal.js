@@ -60,6 +60,15 @@ const PurchaseModal = ({ productCard, setproductCard}) => {
                                         </div>
                                         <div className="form-control">
                                             <input type="text"
+                                                name='itemName'
+                                                placeholder="Product Price"
+                                                value={ProductName}
+                                                disabled
+                                                className="input input-bordered" />
+
+                                        </div>
+                                        <div className="form-control">
+                                            <input type="text"
                                                 name='price'
                                                 placeholder="Product Price"
                                                 value={resalePrice}

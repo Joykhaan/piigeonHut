@@ -1,7 +1,7 @@
 [
     {
         "id":"01",
-        "categorieName":"Samsung"
+        "categorieName":"Nokia"
     },
     {
         "id":"02",
@@ -9,7 +9,7 @@
     },
     {
         "id":"03",
-        "categorieName":"Iphone"
+        "categorieName":"Samsung"
     },
     {
         "id":"04",
@@ -17,10 +17,10 @@
     },
     {
         "id":"05",
-        "categorieName":"Oppo"
+        "categorieName":"Apple"
     },
     {
         "id":"06",
-        "categorieName":"Realmi"
+        "categorieName":"Sony"
     }
 ]

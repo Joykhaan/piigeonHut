@@ -14,7 +14,7 @@ const Categorie = ({categorie}) => {
                         <h2 className="card-title">{categorieName}</h2>
                         
                         <div className="card-actions justify-end">
-                            <Link to={`/categories`} className="btn btn-primary">Buy Now</Link>
+                            <Link to={`/categories/${id}`} className="btn btn-primary">Buy Now</Link>
                         </div>
                     </div>
                 </div>

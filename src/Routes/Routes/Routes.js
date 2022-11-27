@@ -34,9 +34,9 @@ const router = createBrowserRouter([
                 element:<Signup></Signup>
             },
             {
-                path:'/categories',
+                path:'/categories/:id',
                 element:<CategorieCard></CategorieCard>,
-                loader:({params}) => fetch(`categoriesCard.json`),
+                loader:({params}) => fetch(`http://localhost:5000/categories/${params.id}`),
             }
         ]
     },
