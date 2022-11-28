@@ -1,10 +1,11 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import toast, { Toaster } from 'react-hot-toast';
-import { useLoaderData } from 'react-router-dom';
+import { AuthContext } from '../../../ContextApi/Authprovider/Authprovider';
+import MyProducts from '../MyProduct/MyProducts';
 
 const AddProduct = () => {
 
-    const {user}=useLoaderData()
+    const {user} = useContext(AuthContext)
     const time = new Date().toLocaleTimeString();
     const date = new Date().toLocaleDateString();
     const handleAddProducts = event => {
@@ -258,7 +259,8 @@ const AddProduct = () => {
 
                 </div>
             </form>
-            <h1>My product</h1>
+            
+            <MyProducts></MyProducts>
             <Toaster></Toaster>
         </div>
     );
