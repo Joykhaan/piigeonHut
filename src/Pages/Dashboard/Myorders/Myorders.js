@@ -17,6 +17,7 @@ const Myorders = () => {
                             <th>Price</th>
                             <th>Phone Number</th>
                             <th>Location</th>
+                            <th>Payment</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -28,6 +29,7 @@ const Myorders = () => {
                                 <td>{myOrder.price}</td>
                                 <td>{myOrder.number}</td>
                                 <td>{myOrder.location}</td>
+                                <td><button className="btn btn-primary">pay</button></td>
                             </tr>)
                         }
 
