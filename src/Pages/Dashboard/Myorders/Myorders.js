@@ -9,7 +9,8 @@ const Myorders = () => {
             <div className="overflow-x-auto">
                 <table className="table w-full">
 
-                    <thead>
+            
+                    {myOrders.length>0?<thead>
                         <tr>
                             <th>Name</th>
                             <th>Email</th>
@@ -19,10 +20,11 @@ const Myorders = () => {
                             <th>Location</th>
                             <th>Payment</th>
                         </tr>
-                    </thead>
+                    </thead>:<h1>You Have no order  to show</h1>}
                     <tbody>
                         {
                             myOrders.map(myOrder => <tr>
+                                <td><img className="mask mask-circle" src={myOrder.picture} alt='' /></td>
                                 <td>{myOrder.name}</td>
                                 <td>{myOrder.email}</td>
                                 <td>{myOrder.itemName}</td>

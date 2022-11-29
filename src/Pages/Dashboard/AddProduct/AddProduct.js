@@ -24,6 +24,7 @@ const AddProduct = () => {
         const description = form.description.value;
         const categorieName = form.brand[0].value;
         const uid = user.uid;
+        const email = user.email;
         console.log(pictur);
 
         const imageapiKey=process.env.REACT_APP_img;
@@ -62,7 +63,7 @@ const AddProduct = () => {
         const id = (iid(iid));
         const formData=new FormData();
         formData.append('image',pictur)
-        const url = `https://api.imgbb.com/1/upload?expiration=600&key=${imageapiKey}`
+        const url = `https://api.imgbb.com/1/upload?key=${imageapiKey}`
         fetch(url,{
             method: 'POST',
             body:formData
@@ -88,7 +89,8 @@ const AddProduct = () => {
                     time,
                     date,
                     id,
-                    uid
+                    uid,
+                    email
                 }
                 fetch('http://localhost:5000/productdetails', {
             method: 'POST',
@@ -250,7 +252,7 @@ const AddProduct = () => {
 
                     </div>
                     <div className="form-control">
-                        <textarea name='description' className="textarea textarea-bordered" placeholder="Description"></textarea>
+                        <textarea name='description' required className="textarea textarea-bordered" placeholder="Description"></textarea>
 
                     </div>
                     <div className="form-control mt-6">
@@ -260,7 +262,7 @@ const AddProduct = () => {
                 </div>
             </form>
             
-            <MyProducts></MyProducts>
+            {/* <MyProducts></MyProducts> */}
             <Toaster></Toaster>
         </div>
     );

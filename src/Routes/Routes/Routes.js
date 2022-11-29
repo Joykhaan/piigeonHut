@@ -1,6 +1,7 @@
 import { createBrowserRouter } from "react-router-dom";
 import DashboardLayout from "../../Layout/DashboardLayout";
 import Main from "../../Layout/Main/Main";
+import NotFound from "../../Pages/404page/NotFound";
 import Blog from "../../Pages/Blog/Blog";
 import CategorieCard from "../../Pages/CategorieCard/CategorieCard";
 import AddProduct from "../../Pages/Dashboard/AddProduct/AddProduct";
@@ -8,6 +9,7 @@ import AllBuyer from "../../Pages/Dashboard/AllBuyer/AllBuyer";
 import AllSeller from "../../Pages/Dashboard/Allseller/AllSeller";
 import DashboardHome from "../../Pages/Dashboard/DashboardHome";
 import Myorders from "../../Pages/Dashboard/Myorders/Myorders";
+import MyProducts from "../../Pages/Dashboard/MyProduct/MyProducts";
 import Home from "../../Pages/Home/Home/Home";
 import Login from "../../Pages/Login/Login";
 import Signup from "../../Pages/Signup/Signup";
@@ -45,6 +47,10 @@ const router = createBrowserRouter([
         element:<DashboardLayout></DashboardLayout>,
         children:[
             {
+                path:'/dashboard',
+                element:<DashboardHome></DashboardHome>
+            },
+            {
                 path:'/dashboard/:uid',
                 element:<Myorders></Myorders>,
                 loader:({params}) => fetch(`http://localhost:5000/dashboard/${params.uid}`)
@@ -52,6 +58,10 @@ const router = createBrowserRouter([
             {
                 path:'/dashboard/addproduct',
                 element:<AddProduct></AddProduct>
+            },
+            {
+                path:'/dashboard/myproducts',
+                element:<MyProducts></MyProducts>
             },
             {
                 path:'/dashboard/allsellers',
@@ -62,6 +72,10 @@ const router = createBrowserRouter([
                 element:<AllBuyer></AllBuyer>
             },
         ]
+    },
+    {
+        path:'*',
+        element: <NotFound></NotFound>
     }
 ])
 
