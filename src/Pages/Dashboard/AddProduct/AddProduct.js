@@ -156,10 +156,11 @@ const AddProduct = () => {
     }
     return (
         <div>
-            <h1>add product</h1>
-            <form onSubmit={handleAddProducts}>
-                <div><input name='picture' placeholder='choose picture' type="file" /></div>
-                <div className="card-body">
+            <h1 className='text-center text-5xl font-bold mt-16 mb-16'>Add New ProDuct</h1>
+            <div className='flex justify-center'>
+              <form onSubmit={handleAddProducts} className='md:w-1/2 w-full' >
+                <div className='flex  justify-center border'><input name='picture' placeholder='choose picture' type="file" /></div>
+                <div className="card-body gap-6 grid md:grid-cols-2 grid-cols-1 shadow-xl">
                     <div className="form-control">
 
                         <input type="text"
@@ -269,7 +270,9 @@ const AddProduct = () => {
                     </div>
 
                 </div>
-            </form>
+            </form>  
+            </div>
+            
             
             {/* <MyProducts></MyProducts> */}
             <Toaster></Toaster>

@@ -67,12 +67,13 @@ const Signup = () => {
     }
    
     return (
-        <form className='flex justify-center' onSubmit={handleSubmit(handleSignup)}>
+        <div className='flex justify-center mt-16'>
+          <form className='flex justify-center shadow-xl mx-4 mt-16 mb-16 w-96' onSubmit={handleSubmit(handleSignup)}>
 
-            <div>
+            <div className='my-10 mx-4 md:mx-0'>
                 <div className="form-control w-full max-w-xs">
                     <label className="label">
-                        <span className="label-text">Your Name</span>
+                        <span className="label-text text-2xl mt-2">Your Name</span>
                     </label>
                     <input type="text" {...register("name", { required: 'Name is required' })} className="input input-bordered w-full max-w-xs" />
                     {errors.name && <p className='text-red-500' role='alert'>{errors.name?.message}</p>}
@@ -86,7 +87,7 @@ const Signup = () => {
                 </div> */}
                 <div className="form-control w-full max-w-xs">
                     <label className="label">
-                        <span className="label-text">Your Email</span>
+                        <span className="label-text text-2xl mt-2">Your Email</span>
                     </label>
                     <input type="text" {...register("email", { required: 'Email is required' })} className="input input-bordered w-full max-w-xs" />
                     {errors.email && <p className='text-red-500' role='alert'>{errors.email?.message}</p>}
@@ -94,7 +95,7 @@ const Signup = () => {
 
                 <div className="form-control w-full max-w-xs">
                     <label className="label">
-                        <span className="label-text">Password</span>
+                        <span className="label-text text-2xl mt-2">Password</span>
                     </label>
                     <input type="password" {...register("password", { required: 'Password is required' })} className="input input-bordered w-full max-w-xs" />
                 </div>
@@ -102,7 +103,7 @@ const Signup = () => {
 
                 <div>
                     <label className="label">
-                        <span className="label-text">Are you a buyer or seller?</span>
+                        <span className="label-text text-2xl mt-2">Are you a buyer or seller?</span>
                     </label>
                     <select  {...register("role", { required: true })} className="select select-bordered w-full max-w-xs">
                         <option>Buyer</option>
@@ -110,14 +111,16 @@ const Signup = () => {
                         <option>Admin</option>
                     </select>
                 </div>
-                <p>Already have an Account? please <Link to='/login'>Login</Link></p>
+                <p className='mt-6 mb-4 text-xl'>Already have an Account? <br/> please <Link className='text-primary font-bold' to='/login'>Login</Link></p>
 
 
                 {/* <p>{data}</p> */}
-                <input className="btn btn-secondary" type="submit" />
+                <input className="btn btn-primary text-white" type="submit" />
             </div>
 
-        </form>
+        </form>  
+        </div>
+        
     );
 };
 

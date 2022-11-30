@@ -21,33 +21,33 @@ const DashboardLayout = () => {
             <Navbar></Navbar>
             
             <div className="drawer drawer-mobile">
-                <input id="my-drawer-2" type="checkbox" className="drawer-toggle" />
+                <input id="dashboard-drawer" type="checkbox" className="drawer-toggle" />
                 <div className="drawer-content ">
                 <Outlet></Outlet>
-                    <label htmlFor="my-drawer-2" className="btn btn-primary drawer-button lg:hidden">Open drawer</label>
+                    {/* <label htmlFor="dashboard-drawer" className="btn btn-primary drawer-button lg:hidden">Open drawer</label> */}
 
                 </div>
                 <div className="drawer-side">
-                    <label htmlFor="my-drawer-2" className="drawer-overlay"></label>
+                    <label htmlFor="dashboard-drawer" className="drawer-overlay"></label>
                     <ul className="menu p-4 w-80 bg-base-100 text-base-content">
                         {/* <!-- Sidebar content here --> */}
 
                         {
                             isBuyer && <>
-                            <li><Link to={`/dashboard/${user.uid}`} >My orders</Link></li>
+                            <li><Link className='text-4xl font-bold text-primary' to={`/dashboard/${user.uid}`} >My orders</Link></li>
                             </>
                         }
                         {
                             isSeller && <>
-                            <li><Link to='/dashboard/addproduct'>Add a product</Link></li>
+                            <li><Link className='text-4xl font-bold text-primary' to='/dashboard/addproduct'>Add a product</Link></li>
                             </>
                         }
                         
 
                         {
                             isAdmin && <>
-                            <li><Link to='/dashboard/allsellers'>All seller</Link></li>
-                            <li><Link to='/dashboard/allbuyers'>All buyer</Link></li>
+                            <li><Link className='text-4xl font-bold text-primary' to='/dashboard/allsellers'>All seller</Link></li>
+                            <li><Link className='text-4xl font-bold text-primary' to='/dashboard/allbuyers'>All buyer</Link></li>
                             </>
                         }
                         
