@@ -27,6 +27,8 @@ const AddProduct = () => {
         const sellerName = form.name.value;
         const description = form.description.value;
         const categorieName = form.brand[0].value;
+        const productcondition=form.productcondition.value;
+        const number =form.number.value;
         const uid = user.uid;
         const email = user.email;
         console.log(pictur);
@@ -90,6 +92,8 @@ const AddProduct = () => {
                     purchaseYear,
                     postedTime,
                     sellerName,
+                    productcondition,
+                    number,
                     description,
                     time,
                     date,

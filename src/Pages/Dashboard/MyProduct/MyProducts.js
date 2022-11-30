@@ -108,8 +108,8 @@ const MyProducts = () => {
                         <h2 className="card-title">${myproduct.resalePrice}</h2>
                         <p>If a dog chews shoes whose shoes does he choose?</p>
                         <div className="card-actions">
-                            <button onClick={() => handleAdvertise(myproduct)}  className="btn btn-primary">Advertise</button>
-                            <button onClick={() => handleaddDelete(myproduct._id)} className="btn btn-primary">Delete</button>
+                            <button onClick={() => handleAdvertise(myproduct)}  className="btn btn-primary text-white">Advertise</button>
+                            <button onClick={() => handleaddDelete(myproduct._id)} className="btn btn-primary text-white">Delete</button>
                         </div>
                     </div>
                 </div>)
