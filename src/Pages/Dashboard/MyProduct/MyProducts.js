@@ -39,7 +39,7 @@ const MyProducts = () => {
     // }, [uid])
     // setmyproducts([3])
 
-    const sayHello=(advertiseProduct)=>{
+    const handleAdvertise=(advertiseProduct)=>{
         fetch('http://localhost:5000/advertised', {
             method: 'POST',
             headers: {
@@ -65,6 +65,27 @@ const MyProducts = () => {
             })
             .catch(error => console.error(error));
     }
+    const handleaddDelete=(id) =>{
+        console.log('ididi',id)
+        const proced  =window.confirm('are you sure?? to delete the product');
+        if(proced){
+            fetch(`http://localhost:5000/deleteadd/${id}`,{
+                method:'DELETE'
+            })
+            .then(res=>res.json())
+            .then(data=>{
+                console.log(data);
+                if(data.deletedCount > 0){
+                   
+    
+                    toast.success("Deleted Successfully");
+                    refetch()
+    
+                }
+    
+            })
+        }
+        }
     // setdata(sayHello)
     if (loading) {
         return <h1>Loading....</h1>
@@ -86,8 +107,8 @@ const MyProducts = () => {
                         <h2 className="card-title">{myproduct.sellerName}</h2>
                         <p>If a dog chews shoes whose shoes does he choose?</p>
                         <div className="card-actions">
-                            <button onClick={() => sayHello(myproduct)}  className="btn btn-primary">Advertise</button>
-                            {/* <button onClick={() => sayHello(myproduct)} className="btn btn-primary">Advertise</button> */}
+                            <button onClick={() => handleAdvertise(myproduct)}  className="btn btn-primary">Advertise</button>
+                            <button onClick={() => handleaddDelete(myproduct._id)} className="btn btn-primary">Delete</button>
                         </div>
                     </div>
                 </div>)
