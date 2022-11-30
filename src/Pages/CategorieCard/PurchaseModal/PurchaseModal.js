@@ -2,7 +2,7 @@ import React, { useContext } from 'react';
 import { AuthContext } from '../../../ContextApi/Authprovider/Authprovider';
 
 const PurchaseModal = ({ productCard, setproductCard}) => {
-    const { Brand, id, picture, ProductName, Location, resalePrice, originalPrice, useYears, postedTime, sellerName } = productCard;
+    const { picture, ProductName, resalePrice} = productCard;
 
     const { user } = useContext(AuthContext);
     const handleBookingForm = event => {
@@ -41,12 +41,7 @@ const PurchaseModal = ({ productCard, setproductCard}) => {
             .then(res => res.json())
             .then(data => {
                 
-                // if(data.acknowledged){
-                //     toast.success("service added!!",{
-                //         position:"top-center"
-                //     });
-                //     form.reset();
-                // }
+               
                 
             })
             .catch(error => console.error(error));
@@ -66,7 +61,7 @@ const PurchaseModal = ({ productCard, setproductCard}) => {
             <div className="modal">
                 <div className="modal-box">
                     <label htmlFor="my-modal-3" className="btn btn-sm btn-circle absolute right-2 top-2">✕</label>
-                    <h3 className="text-lg font-bold">{id}</h3>
+                    
 
                     <div className="hero ">
                         <div className="hero-content flex-col lg:flex-row-reverse">
@@ -136,7 +131,6 @@ const PurchaseModal = ({ productCard, setproductCard}) => {
 
                 </div>
             </div>
-
         </div>
     );
 };

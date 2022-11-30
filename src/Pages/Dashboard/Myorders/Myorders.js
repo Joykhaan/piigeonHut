@@ -6,7 +6,7 @@ const Myorders = () => {
     return (
         <div>
 
-            <div className="overflow-x-auto">
+            <div className="overflow-x-auto mt-16">
                 <table className="table w-full">
 
             
@@ -24,7 +24,7 @@ const Myorders = () => {
                     <tbody>
                         {
                             myOrders.map(myOrder => <tr>
-                                <td><img className="mask mask-circle w-28" src={myOrder.img} alt='' /></td>
+                                <td><img className="mask mask-circle w-20 h-20" src={myOrder.img} alt='' /></td>
                                 <td>{myOrder.name}</td>
                                 <td>{myOrder.email}</td>
                                 <td>{myOrder.itemName}</td>

@@ -26,7 +26,7 @@ const AddProduct = () => {
         const postedTime = time;
         const sellerName = form.name.value;
         const description = form.description.value;
-        const categorieName = form.brand[0].value;
+        // const categorieName = form.brand[0].value;
         const productcondition=form.productcondition.value;
         const number =form.number.value;
         const uid = user.uid;
@@ -110,13 +110,14 @@ const AddProduct = () => {
         })
             .then(res => res.json())
             .then(data => {
-                console.log(data)
-                if(data.acknowledged){
-                    toast.success('Successfully toasted!')
-                    form.reset();
-                }
-                else{toast.success('try again!')}
-                navigate('/dashboard/myproducts');
+                // console.log(data)
+                // if(data.acknowledged){
+                //     toast.success('Successfully Added!')
+                //     form.reset();
+                //   navigate('/dashboard/myproducts');  
+                // }
+                // else{toast.error('try again!')}
+                
                 
             })
             .catch(error => console.error(error));
@@ -163,12 +164,13 @@ const AddProduct = () => {
             <h1 className='text-center text-5xl font-bold mt-16 mb-16'>Add New ProDuct</h1>
             <div className='flex justify-center'>
               <form onSubmit={handleAddProducts} className='md:w-1/2 w-full' >
-                <div className='flex  justify-center border'><input name='picture' placeholder='choose picture' type="file" /></div>
+                <div className='flex  justify-center border'><input name='picture' required placeholder='choose picture' type="file" /></div>
                 <div className="card-body gap-6 grid md:grid-cols-2 grid-cols-1 shadow-xl">
                     <div className="form-control">
 
                         <input type="text"
                             name='name'
+                            required
                             placeholder="Your Name" className="input input-bordered"
 
                         />
@@ -177,7 +179,7 @@ const AddProduct = () => {
                         <input type="text"
                             name='productname'
                             placeholder="Product name"
-
+                            required
 
                             className="input input-bordered" />
 
@@ -186,7 +188,7 @@ const AddProduct = () => {
                         <input type="text"
                             name='productprice'
                             placeholder="Resell Price"
-
+                            required
                             className="input input-bordered" />
 
                     </div>
@@ -194,19 +196,22 @@ const AddProduct = () => {
                         <input type="text"
                             name='productcondition'
                             placeholder="Product Condition"
-
+                            required
                             className="input input-bordered" />
 
                     </div>
                     <div className="form-control">
                         <input type="text"
                             name='number'
-                            placeholder="Phone Number" className="input input-bordered" />
-
+                            placeholder="Phone Number" 
+                            required
+                            className="input input-bordered" />
+ 
                     </div>
                     <div className="form-control">
                         <input type="text"
                             name='location'
+                            required
                             placeholder="Meeting Location" className="input input-bordered" />
 
                     </div>
@@ -238,18 +243,21 @@ const AddProduct = () => {
                     <div className="form-control">
                         <input type="text"
                             name='originalprice'
+                            required
                             placeholder="original Price" className="input input-bordered" />
 
                     </div>
                     <div className="form-control">
                         <input type="text"
                             name='purchaseyear'
+                            required
                             placeholder="Years of purchase" className="input input-bordered" />
 
                     </div>
                     <div className="form-control">
                         <input type="text"
                             name='yearsofuse'
+                            required
                             placeholder="Years of use" className="input input-bordered" />
 
                     </div>
@@ -259,12 +267,13 @@ const AddProduct = () => {
                             placeholder="Seller Name" className="input input-bordered" />
 
                     </div> */}
-                    <div className="form-control">
+                    {/* <div className="form-control">
                         <input type="text"
                             name='brand'
+                            required
                             placeholder="brand" className="input input-bordered" />
 
-                    </div>
+                    </div> */}
                     <div className="form-control">
                         <textarea name='description' required className="textarea textarea-bordered" placeholder="Description"></textarea>
 

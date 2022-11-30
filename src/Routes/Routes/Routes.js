@@ -13,8 +13,11 @@ import MyProducts from "../../Pages/Dashboard/MyProduct/MyProducts";
 import Home from "../../Pages/Home/Home/Home";
 import Login from "../../Pages/Login/Login";
 import Signup from "../../Pages/Signup/Signup";
+import AdminRoute from "../PrivateRoute/AdminRoute/AdminRoute";
+import BuyerRoute from "../PrivateRoute/BuyerRoute/BuyerRoute";
 import PrivateRoute from "../PrivateRoute/PrivateRoute";
 import Privateroute from "../PrivateRoute/PrivateRoute";
+import SellerRoute from "../PrivateRoute/SellerRoute/SellerRoute";
 
 const router = createBrowserRouter([
     {
@@ -54,24 +57,24 @@ const router = createBrowserRouter([
             },
             {
                 path:'/dashboard/:uid',
-                element:<Myorders></Myorders>,
+                element:<BuyerRoute><Myorders></Myorders></BuyerRoute>,
                 loader:({params}) => fetch(`http://localhost:5000/dashboard/${params.uid}`)
             },
             {
                 path:'/dashboard/addproduct',
-                element:<AddProduct></AddProduct>
+                element:<SellerRoute><AddProduct></AddProduct></SellerRoute>
             },
             {
                 path:'/dashboard/myproducts',
-                element:<MyProducts></MyProducts>
+                element:<SellerRoute><MyProducts></MyProducts></SellerRoute>
             },
             {
                 path:'/dashboard/allsellers',
-                element:<AllSeller></AllSeller>
+                element:<AdminRoute><AllSeller></AllSeller></AdminRoute>
             },
             {
                 path:'/dashboard/allbuyers',
-                element:<AllBuyer></AllBuyer>
+                element:<AdminRoute><AllBuyer></AllBuyer></AdminRoute>
             },
         ]
     },

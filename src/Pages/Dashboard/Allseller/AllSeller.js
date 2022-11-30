@@ -52,11 +52,7 @@ const AllSeller = () => {
                    
     
                     toast.success("Verify Successfully");
-                    // setverify(true)   
-                    // if(data.modifiedCount>0){
                      
-                    // }
-                    
     
                 }
                 else{
@@ -68,8 +64,8 @@ const AllSeller = () => {
         }
     return (
         <div>
-            <h1>all seller</h1>
-            <h1>{allsellers.length}</h1>
+            <h1 className='text-5xl  font-bold text-center mt-16 mb-8'>all seller</h1>
+
             <div className="overflow-x-auto">
                 <table className="table w-full">
 
