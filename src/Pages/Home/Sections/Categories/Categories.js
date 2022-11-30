@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { useLoaderData } from 'react-router-dom';
+
 import Categorie from './Categorie';
 
 const Categories = () => {
@@ -8,7 +8,7 @@ const Categories = () => {
     // const categoryCard=useLoaderData()
     // console.log(categoryCard)
     useEffect(()=>{
-        fetch('http://localhost:5000/categories')
+        fetch('https://mobile-reselling-server.vercel.app/categories')
         .then(res=> res.json())
         .then(data=> setCategories(data))
     },[])
@@ -16,7 +16,7 @@ const Categories = () => {
         <>
         <h1 className='mt-16 text-5xl text-center font-bold'>Mobile Categories</h1>
         <div className='mt-8 mb-16 grid gap-x-6 gap-y-20 grid-cols-1 md:grid-cols-2 lg:grid-cols-3 justify-items-center mx-4 md:mx-4'>
-            {/* <Categorie></Categorie> */}
+     
             {categories.map((categorie)=><Categorie
             key={categorie.id}
             categorie={categorie}

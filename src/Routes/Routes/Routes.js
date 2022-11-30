@@ -16,7 +16,7 @@ import Signup from "../../Pages/Signup/Signup";
 import AdminRoute from "../PrivateRoute/AdminRoute/AdminRoute";
 import BuyerRoute from "../PrivateRoute/BuyerRoute/BuyerRoute";
 import PrivateRoute from "../PrivateRoute/PrivateRoute";
-import Privateroute from "../PrivateRoute/PrivateRoute";
+
 import SellerRoute from "../PrivateRoute/SellerRoute/SellerRoute";
 
 const router = createBrowserRouter([
@@ -43,7 +43,7 @@ const router = createBrowserRouter([
             {
                 path:'/categories/:id',
                 element:<PrivateRoute><CategorieCard></CategorieCard></PrivateRoute>,
-                loader:({params}) => fetch(`http://localhost:5000/categories/${params.id}`),
+                loader:({params}) => fetch(`https://mobile-reselling-server.vercel.app/categories/${params.id}`),
             }
         ]
     },
@@ -58,7 +58,7 @@ const router = createBrowserRouter([
             {
                 path:'/dashboard/:uid',
                 element:<BuyerRoute><Myorders></Myorders></BuyerRoute>,
-                loader:({params}) => fetch(`http://localhost:5000/dashboard/${params.uid}`)
+                loader:({params}) => fetch(`https://mobile-reselling-server.vercel.app/dashboard/${params.uid}`)
             },
             {
                 path:'/dashboard/addproduct',

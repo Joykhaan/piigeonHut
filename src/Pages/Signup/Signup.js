@@ -9,15 +9,14 @@ const Signup = () => {
 
 
     const handleSignup=data=>{
-        console.log('signup',data);
+    
 
         signUp(data.email,data.password)
         .then(result=>{
             const user =result.user;
             console.log(user)
             reset()
-            // navigate(from,{replace: true});
-            // updateUserProfile(data.name,data.role)
+            
             handleUpdateUser(data.name)
             
             
@@ -35,8 +34,8 @@ const Signup = () => {
             role
 
           }
-        //   console.log(userInfo)
-        fetch('http://localhost:5000/userinfo', {
+      
+        fetch('https://mobile-reselling-server.vercel.app/userinfo', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'
@@ -46,12 +45,7 @@ const Signup = () => {
             .then(res => res.json())
             .then(data => {
                 
-                // if(data.acknowledged){
-                //     toast.success("service added!!",{
-                //         position:"top-center"
-                //     });
-                //     form.reset();
-                // }
+                
                 
             })
             .catch(error => console.error(error));
@@ -60,7 +54,7 @@ const Signup = () => {
         const profile={
             displayName: name,
         }
-        // console.log('phone',phone)
+        
         updateUserProfile(profile)
         .then(()=>{})
         .catch(error=>console.error(error))
@@ -78,13 +72,7 @@ const Signup = () => {
                     <input type="text" {...register("name", { required: 'Name is required' })} className="input input-bordered w-full max-w-xs" />
                     {errors.name && <p className='text-red-500' role='alert'>{errors.name?.message}</p>}
                 </div>
-                {/* <div className="form-control w-full max-w-xs">
-                    <label className="label">
-                        <span className="label-text">Your Number</span>
-                    </label>
-                    <input type="text" {...register("phone", { required: 'Phone number is required' })} className="input input-bordered w-full max-w-xs" />
-                    {errors.phone && <p className='text-red-500' role='alert'>{errors.phone?.message}</p>}
-                </div> */}
+               
                 <div className="form-control w-full max-w-xs">
                     <label className="label">
                         <span className="label-text text-2xl mt-2">Your Email</span>
@@ -108,13 +96,13 @@ const Signup = () => {
                     <select  {...register("role", { required: true })} className="select select-bordered w-full max-w-xs">
                         <option>Buyer</option>
                         <option>Seller</option>
-                        <option>Admin</option>
+                        
                     </select>
                 </div>
                 <p className='mt-6 mb-4 text-xl'>Already have an Account? <br/> please <Link className='text-primary font-bold' to='/login'>Login</Link></p>
 
 
-                {/* <p>{data}</p> */}
+             
                 <input className="btn btn-primary text-white" type="submit" />
             </div>
 

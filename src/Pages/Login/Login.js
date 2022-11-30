@@ -1,5 +1,5 @@
 import {GoogleAuthProvider } from 'firebase/auth';
-import React, { useContext, useState } from 'react';
+import React, { useContext } from 'react';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { useForm } from "react-hook-form";
 import { AuthContext } from '../../ContextApi/Authprovider/Authprovider';
@@ -12,16 +12,14 @@ const Login = () => {
     const navigate = useNavigate()
     const from = location.state?.from?.pathname || '/';
     const { register,reset, formState:{errors}, handleSubmit } = useForm();
-    // const [data, setData] = useState("");
+   
     const handlelogin= data=>{
         console.log(data);
         logIn(data.email, data.password)
         .then(result => {
           const user = result.user;
           console.log(user);
-        //   toast.success("Deleted Successfully",{
-        //       position:"top-center"
-        //   });
+       
         reset();
           navigate(from, { replace: true });
         })
@@ -64,7 +62,6 @@ const Login = () => {
 
 
 
-                {/* <p>{data}</p> */}
                 <input className="btn btn-primary text-white" type="submit" />
             </div>
 

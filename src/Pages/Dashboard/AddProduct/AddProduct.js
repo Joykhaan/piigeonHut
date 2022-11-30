@@ -1,9 +1,9 @@
-import { useQuery } from '@tanstack/react-query';
+
 import React, { useContext } from 'react';
-import toast, { Toaster } from 'react-hot-toast';
+
 import { useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../../ContextApi/Authprovider/Authprovider';
-import MyProducts from '../MyProduct/MyProducts';
+
 
 const AddProduct = () => {
 
@@ -11,7 +11,6 @@ const AddProduct = () => {
     const time = new Date().toLocaleTimeString();
     const date = new Date().toLocaleDateString();
     const  navigate = useNavigate();
-    // const {refetch}=useQuery()
     const handleAddProducts = event => {
         event.preventDefault();
         const form = event.target;
@@ -26,7 +25,6 @@ const AddProduct = () => {
         const postedTime = time;
         const sellerName = form.name.value;
         const description = form.description.value;
-        // const categorieName = form.brand[0].value;
         const productcondition=form.productcondition.value;
         const number =form.number.value;
         const uid = user.uid;
@@ -36,9 +34,7 @@ const AddProduct = () => {
         const imageapiKey=process.env.REACT_APP_img;
         console.log(imageapiKey);
         
-        // const location = useLocation();
-        
-        // const from = location.state?.from?.pathname || '/';
+
 
         const iid = (iid) => {
             if (Brand === 'Nokia') {
@@ -101,7 +97,7 @@ const AddProduct = () => {
                     uid,
                     email
                 }
-                fetch('http://localhost:5000/productdetails', {
+                fetch('https://mobile-reselling-server.vercel.app/productdetails', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'
@@ -110,13 +106,12 @@ const AddProduct = () => {
         })
             .then(res => res.json())
             .then(data => {
-                // console.log(data)
-                // if(data.acknowledged){
-                //     toast.success('Successfully Added!')
-                //     form.reset();
-                //   navigate('/dashboard/myproducts');  
-                // }
-                // else{toast.error('try again!')}
+                console.log(data)
+                if(data.acknowledged){
+                   
+                  navigate('/dashboard/myproducts');  
+                }
+                
                 
                 
             })
@@ -129,32 +124,7 @@ const AddProduct = () => {
         
         
         
-        // const categories = {
-        //     id,
-        //     categorieName
-        // }
-        // console.log(productCards)
-        // fetch('http://localhost:5000/categoriesinfo', {
-        //     method: 'POST',
-        //     headers: {
-        //         'content-type': 'application/json'
-        //     },
-        //     body: JSON.stringify(categories)
-        // })
-            // .then(res => res.json())
-            // .then(data => {
-                
-            //     // if(data.acknowledged){
-            //     //     toast.success("service added!!",{
-            //     //         position:"top-center"
-            //     //     });
-            //     //     form.reset();
-            //     // }
-            //     navigate('/dashboard/myproducts');
-            //     // refetch()
-                
-            // })
-            // .catch(error => console.error(error));
+     
 
             
 
@@ -261,19 +231,7 @@ const AddProduct = () => {
                             placeholder="Years of use" className="input input-bordered" />
 
                     </div>
-                    {/* <div className="form-control">
-                        <input type="text"
-                            name='sellername'
-                            placeholder="Seller Name" className="input input-bordered" />
-
-                    </div> */}
-                    {/* <div className="form-control">
-                        <input type="text"
-                            name='brand'
-                            required
-                            placeholder="brand" className="input input-bordered" />
-
-                    </div> */}
+                    
                     <div className="form-control">
                         <textarea name='description' required className="textarea textarea-bordered" placeholder="Description"></textarea>
 
@@ -287,8 +245,8 @@ const AddProduct = () => {
             </div>
             
             
-            {/* <MyProducts></MyProducts> */}
-            <Toaster></Toaster>
+       
+            
         </div>
     );
 };

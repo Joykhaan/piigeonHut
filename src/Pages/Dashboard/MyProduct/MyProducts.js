@@ -1,22 +1,19 @@
 import { useQuery } from '@tanstack/react-query';
-import React, { useContext, useEffect, useState } from 'react';
+import React, { useContext} from 'react';
 import toast, { Toaster } from 'react-hot-toast';
 import { AuthContext } from '../../../ContextApi/Authprovider/Authprovider';
-import MyproductCard from './MyproductCard';
+
 
 const MyProducts = () => {
     const { user, loading } = useContext(AuthContext);
-    // const [myvariable, setmyvariable] = useState('save reload');
-    // setTimeout(()=>{
-    //     setmyvariable('dont reload')
-    // },5000)
+  
 
     const uid = user?.uid;
     console.log('id', uid)
     const { data: myproducts = [],refetch} = useQuery({
         queryKey: ['myproducts'],
         queryFn: async () => {
-            const res = await fetch(`http://localhost:5000/myproducts/${uid}`);
+            const res = await fetch(`https://mobile-reselling-server.vercel.app/myproducts/${uid}`);
             const data = await res.json();
             console.log('data', data)
             return data
@@ -26,21 +23,11 @@ const MyProducts = () => {
 
     
 
-    // const [myproducts, setmyproducts] = useState([]);
-    const [advertise, setAdvertise] = useState(false);
-    // useEffect(() => {
-
-    //         fetch(`http://localhost:5000/myproducts/${uid}`)
-    //         .then(res=>res.json())
-    //         .then(data=>{
-    //             setmyproducts(data)
-    //         })
-
-    // }, [uid])
-    // setmyproducts([3])
+   
+    
 
     const handleAdvertise=(advertiseProduct)=>{
-        fetch('http://localhost:5000/advertised', {
+        fetch('https://mobile-reselling-server.vercel.app/advertised', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'
@@ -54,13 +41,9 @@ const MyProducts = () => {
                     toast.success("Advertise Successful!");
                     
                 }else{toast.error("Advertise Successful!")}
-                console.log('dataa',data)
-                // if(data.modifiedCount>0){
-                //     // refetch()
-                //     toast.success("Advertise Successful!")
-                // }
+               
                 refetch()
-                setAdvertise(true)
+            
                 
             })
             .catch(error => console.error(error));
@@ -69,7 +52,7 @@ const MyProducts = () => {
         console.log('ididi',id)
         const proced  =window.confirm('are you sure?? to delete the product');
         if(proced){
-            fetch(`http://localhost:5000/deleteadd/${id}`,{
+            fetch(`https://mobile-reselling-server.vercel.app/deleteadd/${id}`,{
                 method:'DELETE'
             })
             .then(res=>res.json())

@@ -2,8 +2,8 @@ import React from 'react';
 import { FaCheck } from "react-icons/fa";
 
 const CategorieCards = ({ card, setproductCard  }) => {
-    const { id, Brand, picture, ProductName, Location, resalePrice, originalPrice, useYears, postedTime, sellerName,isverified,purchaseYear,description,date,productcondition,number} = card
-    const time = new Date().toLocaleTimeString();
+    const {  Brand, picture, ProductName, Location, resalePrice, originalPrice, useYears, postedTime, sellerName,isverified,purchaseYear,description,date,productcondition,number} = card
+   
     return (
         <div className="card card-compact w-96 bg-base-100 shadow-xl">
             <figure><img src={picture} alt="Shoes" /></figure>

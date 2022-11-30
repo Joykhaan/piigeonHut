@@ -1,18 +1,15 @@
 import { useQuery } from '@tanstack/react-query';
-import React, { useContext, useState } from 'react';
+
 import toast, { Toaster } from 'react-hot-toast';
-import { AuthContext } from '../../../ContextApi/Authprovider/Authprovider';
+
 
 const AllSeller = () => {
-    const {user}=useContext(AuthContext)
-    // const [verify, setverify] = useState(false);
-    // const [delet, setdelet] = useState(false);
 
-    // console.log('ver',verify)
+
     const {data:allsellers=[],refetch}=useQuery({
         queryKey:['allsellers'],
         queryFn: async()=>{
-            const res = await fetch(`http://localhost:5000/allsellers`);
+            const res = await fetch(`https://mobile-reselling-server.vercel.app/allsellers`);
             const data =await res.json();
             return data
         }
@@ -21,7 +18,7 @@ const AllSeller = () => {
   
         const proced  =window.confirm('are you sure?? to delete the Seller');
         if(proced){
-            fetch(`http://localhost:5000/deleteSeller/${id}`,{
+            fetch(`https://mobile-reselling-server.vercel.app/deleteSeller/${id}`,{
                 method:'DELETE'
             })
             .then(res=>res.json())
@@ -42,7 +39,7 @@ const AllSeller = () => {
   
         const proced  =window.confirm('are you sure?? to delete the Seller');
         if(proced){
-            fetch(`http://localhost:5000/verify/${email}`,{
+            fetch(`https://mobile-reselling-server.vercel.app/verify/${email}`,{
                 method:'PUT'
             })
             .then(res=>res.json())
@@ -50,7 +47,7 @@ const AllSeller = () => {
                 console.log(data);
                 if(data.upsertedCount>0){
                    
-    
+                    refetch()
                     toast.success("Verify Successfully");
                      
     

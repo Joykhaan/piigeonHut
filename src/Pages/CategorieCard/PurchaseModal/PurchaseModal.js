@@ -17,7 +17,7 @@ const PurchaseModal = ({ productCard, setproductCard}) => {
         const img = picture
         const uid =user.uid
 
-        // console.log(name,email,price,number,location,itemName)
+        
         setproductCard(null)
 
         const bookingInfo ={
@@ -31,7 +31,7 @@ const PurchaseModal = ({ productCard, setproductCard}) => {
             uid
         }
 
-        fetch('http://localhost:5000/bookinginfo', {
+        fetch('https://mobile-reselling-server.vercel.app/bookinginfo', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'
@@ -53,10 +53,7 @@ const PurchaseModal = ({ productCard, setproductCard}) => {
         <div>
 
 
-            {/* The button to open modal */}
-            {/* <label htmlFor="my-modal-3" className="btn">open modal</label> */}
-
-            {/* Put this part before </body> tag */}
+            
             <input type="checkbox" id="my-modal-3" className="modal-toggle" />
             <div className="modal">
                 <div className="modal-box">
