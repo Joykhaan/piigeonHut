@@ -1,5 +1,7 @@
+import { useQuery } from '@tanstack/react-query';
 import React, { useContext } from 'react';
 import toast, { Toaster } from 'react-hot-toast';
+import { useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../../ContextApi/Authprovider/Authprovider';
 import MyProducts from '../MyProduct/MyProducts';
 
@@ -8,6 +10,8 @@ const AddProduct = () => {
     const {user} = useContext(AuthContext)
     const time = new Date().toLocaleTimeString();
     const date = new Date().toLocaleDateString();
+    const  navigate = useNavigate();
+    // const {refetch}=useQuery()
     const handleAddProducts = event => {
         event.preventDefault();
         const form = event.target;
@@ -28,10 +32,11 @@ const AddProduct = () => {
         console.log(pictur);
 
         const imageapiKey=process.env.REACT_APP_img;
-        console.log(imageapiKey)
+        console.log(imageapiKey);
         
-
-       
+        // const location = useLocation();
+        
+        // const from = location.state?.from?.pathname || '/';
 
         const iid = (iid) => {
             if (Brand === 'Nokia') {
@@ -107,6 +112,7 @@ const AddProduct = () => {
                     form.reset();
                 }
                 else{toast.success('try again!')}
+                navigate('/dashboard/myproducts');
                 
             })
             .catch(error => console.error(error));
@@ -118,31 +124,34 @@ const AddProduct = () => {
         
         
         
-        const categories = {
-            id,
-            categorieName
-        }
+        // const categories = {
+        //     id,
+        //     categorieName
+        // }
         // console.log(productCards)
-        fetch('http://localhost:5000/categoriesinfo', {
-            method: 'POST',
-            headers: {
-                'content-type': 'application/json'
-            },
-            body: JSON.stringify(categories)
-        })
-            .then(res => res.json())
-            .then(data => {
+        // fetch('http://localhost:5000/categoriesinfo', {
+        //     method: 'POST',
+        //     headers: {
+        //         'content-type': 'application/json'
+        //     },
+        //     body: JSON.stringify(categories)
+        // })
+            // .then(res => res.json())
+            // .then(data => {
                 
-                // if(data.acknowledged){
-                //     toast.success("service added!!",{
-                //         position:"top-center"
-                //     });
-                //     form.reset();
-                // }
+            //     // if(data.acknowledged){
+            //     //     toast.success("service added!!",{
+            //     //         position:"top-center"
+            //     //     });
+            //     //     form.reset();
+            //     // }
+            //     navigate('/dashboard/myproducts');
+            //     // refetch()
                 
-            })
-            .catch(error => console.error(error));
+            // })
+            // .catch(error => console.error(error));
 
+            
 
     }
     return (

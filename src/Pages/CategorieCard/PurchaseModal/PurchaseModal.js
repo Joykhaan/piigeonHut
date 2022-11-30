@@ -14,6 +14,7 @@ const PurchaseModal = ({ productCard, setproductCard}) => {
         const number = form.number.value;
         const location = form.location.value;
         const itemName = form.itemName.value
+        const img = picture
         const uid =user.uid
 
         // console.log(name,email,price,number,location,itemName)
@@ -26,6 +27,7 @@ const PurchaseModal = ({ productCard, setproductCard}) => {
             price,
             number,
             location,
+            img,
             uid
         }
 

@@ -13,6 +13,8 @@ import MyProducts from "../../Pages/Dashboard/MyProduct/MyProducts";
 import Home from "../../Pages/Home/Home/Home";
 import Login from "../../Pages/Login/Login";
 import Signup from "../../Pages/Signup/Signup";
+import PrivateRoute from "../PrivateRoute/PrivateRoute";
+import Privateroute from "../PrivateRoute/PrivateRoute";
 
 const router = createBrowserRouter([
     {
@@ -37,14 +39,14 @@ const router = createBrowserRouter([
             },
             {
                 path:'/categories/:id',
-                element:<CategorieCard></CategorieCard>,
+                element:<PrivateRoute><CategorieCard></CategorieCard></PrivateRoute>,
                 loader:({params}) => fetch(`http://localhost:5000/categories/${params.id}`),
             }
         ]
     },
     {
         path:'/dashboard',
-        element:<DashboardLayout></DashboardLayout>,
+        element:<PrivateRoute><DashboardLayout></DashboardLayout></PrivateRoute> ,
         children:[
             {
                 path:'/dashboard',

@@ -24,7 +24,7 @@ const Myorders = () => {
                     <tbody>
                         {
                             myOrders.map(myOrder => <tr>
-                                <td><img className="mask mask-circle" src={myOrder.picture} alt='' /></td>
+                                <td><img className="mask mask-circle w-28" src={myOrder.img} alt='' /></td>
                                 <td>{myOrder.name}</td>
                                 <td>{myOrder.email}</td>
                                 <td>{myOrder.itemName}</td>

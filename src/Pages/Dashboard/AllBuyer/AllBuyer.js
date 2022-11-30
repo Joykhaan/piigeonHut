@@ -3,7 +3,7 @@ import React from 'react';
 import toast, { Toaster } from 'react-hot-toast';
 
 const AllBuyer = () => {
-    const { data: allbuyers = [] } = useQuery({
+    const { data: allbuyers = [],refetch } = useQuery({
         queryKey: ['allbuyers'],
         queryFn: async () => {
             const res = await fetch(`http://localhost:5000/allbuyers`);
@@ -26,6 +26,7 @@ const AllBuyer = () => {
                    
     
                     toast.success("Deleted Successfully");
+                    refetch()
     
     
                 }
@@ -46,6 +47,7 @@ const AllBuyer = () => {
                             <th>Email</th>
                             <th>Role</th>
                             <th>Action</th>
+                          
                         </tr>
                     </thead>
                     {
@@ -56,7 +58,7 @@ const AllBuyer = () => {
                                 <td>{allbuyer.name}</td>
                                 <td>{allbuyer.email}</td>
                                 <td>{allbuyer.role}</td>
-                                <td><button onClick={()=>handleBuyerDelete(allbuyer._id)} className="btn btn-primary">Button</button></td>
+                                <td><button onClick={()=>handleBuyerDelete(allbuyer._id)} className="btn btn-primary">Delete</button></td>
                             </tr>
                         </tbody>)
                     }

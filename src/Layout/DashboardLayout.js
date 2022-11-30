@@ -1,5 +1,5 @@
 import React, { useContext } from 'react';
-import { Link, Outlet } from 'react-router-dom';
+import { Link, Outlet, useLocation, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../ContextApi/Authprovider/Authprovider';
 import useAdmin from '../Hooks/IsAdmin/IsAdmin';
 import useBuyer from '../Hooks/IsBuyer/IsBuyer';
@@ -11,7 +11,11 @@ const DashboardLayout = () => {
     const{user}= useContext(AuthContext);
     const [isBuyer]=useBuyer(user?.email);
     const [isAdmin]=useAdmin(user?.email);
-    const [isSeller]=useSeller(user?.email);;
+    const [isSeller]=useSeller(user?.email);
+    // const location = useLocation();
+    // const navigate = useNavigate()
+    // const from = location.state?.from?.pathname || '/';
+    // navigate(from, { replace: true });
     return (
         <div>
             <Navbar></Navbar>
