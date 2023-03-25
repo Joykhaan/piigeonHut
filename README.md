@@ -1,8 +1,6 @@
-# Mobile reselling app
-# live link
-https://mobile-resell.web.app/
+# Pigeon reselling app
 # A react app
 # Single page app
-# Using rect hook gorm
-# Using rect query
+# Using rect Hook Form
+# Using react query
 
