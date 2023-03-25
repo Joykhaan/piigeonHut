@@ -6,7 +6,7 @@ const AllBuyer = () => {
     const { data: allbuyers = [],refetch } = useQuery({
         queryKey: ['allbuyers'],
         queryFn: async () => {
-            const res = await fetch(`http://localhost:5000/allbuyers`);
+            const res = await fetch(`https://pigeon-haat-server.vercel.app/allbuyers`);
             const data = await res.json();
             return data
         }
@@ -16,7 +16,7 @@ const AllBuyer = () => {
   
         const proced  =window.confirm('are you sure?? to delete the Buyer');
         if(proced){
-            fetch(`http://localhost:5000/deleteBuyer/${id}`,{
+            fetch(`https://pigeon-haat-server.vercel.app/deleteBuyer/${id}`,{
                 method:'DELETE'
             })
             .then(res=>res.json())

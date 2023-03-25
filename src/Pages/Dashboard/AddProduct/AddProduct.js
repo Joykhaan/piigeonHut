@@ -96,7 +96,7 @@ const AddProduct = () => {
                         uid,
                         email
                     }
-                    fetch('http://localhost:5000/productdetails', {
+                    fetch('https://pigeon-haat-server.vercel.app/productdetails', {
                         method: 'POST',
                         headers: {
                             'content-type': 'application/json'

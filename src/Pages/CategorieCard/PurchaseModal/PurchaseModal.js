@@ -31,7 +31,7 @@ const PurchaseModal = ({ productCard, setproductCard}) => {
             uid
         }
 
-        fetch('http://localhost:5000/bookinginfo', {
+        fetch('https://pigeon-haat-server.vercel.app/bookinginfo', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'

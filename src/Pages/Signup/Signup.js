@@ -35,7 +35,7 @@ const Signup = () => {
 
           }
       
-        fetch('http://localhost:5000/userinfo', {
+        fetch('https://pigeon-haat-server.vercel.app/userinfo', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'

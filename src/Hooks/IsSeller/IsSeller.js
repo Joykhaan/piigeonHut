@@ -5,7 +5,7 @@ const useSeller=email=>{
     const [issellerLoading, setissellerLoading] = useState(true);
     useEffect(() => {
         if(email){
-            fetch(`http://localhost:5000/seller/${email}`)
+            fetch(`https://pigeon-haat-server.vercel.app/seller/${email}`)
             .then(res=>res.json())
             .then(data=>{
                 setisSeller(data.isSeller)

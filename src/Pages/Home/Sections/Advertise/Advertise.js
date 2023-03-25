@@ -7,7 +7,7 @@ const Advertise = () => {
     const {data:advertiseProducts=[]}=useQuery({
         queryKey:['advertised'],
         queryFn: async()=>{
-            const res = await fetch(`http://localhost:5000/advertisedProducts`);
+            const res = await fetch(`https://pigeon-haat-server.vercel.app/advertisedProducts`);
             const data =await res.json();
             return data
         }
