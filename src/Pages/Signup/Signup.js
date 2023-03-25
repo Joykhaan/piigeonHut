@@ -35,7 +35,7 @@ const Signup = () => {
 
           }
       
-        fetch('https://mobile-reselling-server.vercel.app/userinfo', {
+        fetch('http://localhost:5000/userinfo', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'
@@ -45,7 +45,7 @@ const Signup = () => {
             .then(res => res.json())
             .then(data => {
                 
-                
+                console.log(data)
                 
             })
             .catch(error => console.error(error));

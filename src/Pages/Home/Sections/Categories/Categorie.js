@@ -9,7 +9,7 @@ const Categorie = ({categorie}) => {
 
             <div>
                 <div className="card w-full bg-base-100 shadow-2xl image-full hover:translate-y-6 ">
-                    <figure><img  src="https://www.globalbrandsmagazine.com/wp-content/uploads/2020/08/Top-10-Mobile-Brands-in-World-1-1.jpg" alt="Shoes" /></figure>
+                    <figure><img  src="https://www.mpg.de/15505977/original-1602149955.webp?t=eyJ3aWR0aCI6ODQ4LCJmaWxlX2V4dGVuc2lvbiI6IndlYnAiLCJxdWFsaXR5Ijo4Niwib2JqX2lkIjoxNTUwNTk3N30%3D--e3217772a5742b4bbfac0b815722721ca1c36132" alt="Shoes" /></figure>
                     <div className="card-body flex justify-center">
                         <h2 className="card-title text-white text-3xl md:text-5xl  justify-center">{categorieName}</h2>
                         

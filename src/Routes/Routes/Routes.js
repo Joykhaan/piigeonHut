@@ -43,7 +43,7 @@ const router = createBrowserRouter([
             {
                 path:'/categories/:id',
                 element:<PrivateRoute><CategorieCard></CategorieCard></PrivateRoute>,
-                loader:({params}) => fetch(`https://mobile-reselling-server.vercel.app/categories/${params.id}`),
+                loader:({params}) => fetch(`http://localhost:5000/categories/${params.id}`),
             }
         ]
     },
@@ -58,7 +58,7 @@ const router = createBrowserRouter([
             {
                 path:'/dashboard/:uid',
                 element:<BuyerRoute><Myorders></Myorders></BuyerRoute>,
-                loader:({params}) => fetch(`https://mobile-reselling-server.vercel.app/dashboard/${params.uid}`)
+                loader:({params}) => fetch(`http://localhost:5000/dashboard/${params.uid}`)
             },
             {
                 path:'/dashboard/addproduct',

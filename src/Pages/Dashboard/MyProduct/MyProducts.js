@@ -13,7 +13,7 @@ const MyProducts = () => {
     const { data: myproducts = [],refetch} = useQuery({
         queryKey: ['myproducts'],
         queryFn: async () => {
-            const res = await fetch(`https://mobile-reselling-server.vercel.app/myproducts/${uid}`);
+            const res = await fetch(`http://localhost:5000/myproducts/${uid}`);
             const data = await res.json();
             console.log('data', data)
             return data
@@ -27,7 +27,7 @@ const MyProducts = () => {
     
 
     const handleAdvertise=(advertiseProduct)=>{
-        fetch('https://mobile-reselling-server.vercel.app/advertised', {
+        fetch('http://localhost:5000/advertised', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'
@@ -52,7 +52,7 @@ const MyProducts = () => {
         console.log('ididi',id)
         const proced  =window.confirm('are you sure?? to delete the product');
         if(proced){
-            fetch(`https://mobile-reselling-server.vercel.app/deleteadd/${id}`,{
+            fetch(`http://localhost:5000/deleteadd/${id}`,{
                 method:'DELETE'
             })
             .then(res=>res.json())

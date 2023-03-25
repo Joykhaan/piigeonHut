@@ -7,14 +7,14 @@ const Advertise = () => {
     const {data:advertiseProducts=[]}=useQuery({
         queryKey:['advertised'],
         queryFn: async()=>{
-            const res = await fetch(`https://mobile-reselling-server.vercel.app/advertisedProducts`);
+            const res = await fetch(`http://localhost:5000/advertisedProducts`);
             const data =await res.json();
             return data
         }
     })
     return (
         <div>
-            {advertiseProducts?.length >0 && <h1 className='text-5xl mt-16 mb-8 font-bold text-center'>Advertised Mobiles</h1>}
+            {advertiseProducts?.length >0 && <h1 className='text-5xl mt-16 mb-8 font-bold text-center'>Featured Pigeon</h1>}
             <div className='mt-8 mx-4 mb-16 grid gap-x-6 gap-y-20 grid-cols-1 md:grid-cols-2  justify-items-center'>
               {
                 advertiseProducts.map(advertiseProduct=><AdvertiseCard

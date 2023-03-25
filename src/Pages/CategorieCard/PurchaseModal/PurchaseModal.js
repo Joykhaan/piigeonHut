@@ -31,7 +31,7 @@ const PurchaseModal = ({ productCard, setproductCard}) => {
             uid
         }
 
-        fetch('https://mobile-reselling-server.vercel.app/bookinginfo', {
+        fetch('http://localhost:5000/bookinginfo', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'
