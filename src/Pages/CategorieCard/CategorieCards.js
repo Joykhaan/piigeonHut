@@ -13,7 +13,7 @@ const CategorieCards = ({ card, setproductCard  }) => {
                 <h2 className="card-title">{ProductName}</h2>
                 <h2 className="card-title">Species: {Species}</h2>
                 <h2 className="card-title">year: {purchaseYear}</h2>
-                <h2 className="card-title">year: {useYears}</h2>
+                {/* <h2 className="card-title">year: {useYears}</h2> */}
                 <h2 className="card-title">Condition: {productcondition}</h2>
                 <h2 className="card-title">Postdate: {date}</h2>
                 <h2 className="card-title">Posttime: {postedTime}</h2>
